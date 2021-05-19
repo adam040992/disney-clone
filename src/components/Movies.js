@@ -1,27 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { selectMovies } from '../features/movie/movieSlice';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { setMovieId } from '../features/movie/movieSlice';
 
 function Movies() {
     const movies = useSelector(selectMovies);
-    const dispatch = useDispatch();
 
     console.log(movies);
-
-    const MovieId = (e) => {
-        dispatch(setMovieId(e.movie.id))
-    }
 
     return (
         <Container>
             <h4>Recommended for You</h4>
             <Content>
                 {movies && movies.map((movie) => (
-                    <Wrap key={movie.id} onClick={MovieId}>
-                        <img src={movie.cardImg} />
+                    <Wrap key={movie.id}>
+                        <Link to={`/detail/${movie.id}`}>
+                            <img src={movie.cardImg} />
+                        </Link>
                     </Wrap>
                 ))}
             </Content>

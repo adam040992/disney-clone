@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     movies: [],
-    movieId: null
 }
 
 export const movieSlice = createSlice ({
@@ -12,9 +11,6 @@ export const movieSlice = createSlice ({
         setMovies: (state, action) => {
             state.movies = action.payload;
         },
-        setMovieId: (state, action) => {
-            state.movieId = action.payload;
-        }
     }
 })
 
