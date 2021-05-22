@@ -14,7 +14,7 @@ export const movieSlice = createSlice({
     }
 })
 
-export const { setMovies, setMovieId } = movieSlice.actions;
+export const { setMovies } = movieSlice.actions;
 
 export const selectMovies = (state) => state.movie.movies;
 
